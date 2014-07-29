@@ -13,3 +13,7 @@ also, 1 * 2 + 3 + 4 = 10.
 You can even group digits, like so:
 
 44 - 34 = 10
+
+Have a play here:
+
+http://www.ransico.com/train-game
