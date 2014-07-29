@@ -42,7 +42,8 @@
         <div class="container">
             <h1>Train Game</h1>
             <div id="content">
-                <input type="text" data-bind="value: input" pattern="[0-9]{4}" placeholder="XXXX" maxlength="4" /><button data-bind="events: { click: onGoClick }">Go</button>
+                <input type="text" data-bind="value: input, events: { keyup: onKeyUp }" pattern="[0-9]{4}" placeholder="XXXX" maxlength="4" />
+                <button data-bind="events: { click: onGoClick }">Go</button>
                 <div class="output" data-bind="html: output"></div>
             </div>
         </div>

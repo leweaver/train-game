@@ -69,11 +69,12 @@ $(function() {
     }
 
     $content = $('#content');
+    var defaultOut = 'Enter train number and click "go".';
 
     var model = kendo.observable({
 
         input: '',
-        output: 'Enter train number and click "go".',
+        output: defaultOut,
 
         onGoClick: function(evt) {
 
@@ -104,6 +105,16 @@ $(function() {
             var output = 'Found ' + results.length + ' solution' + (results.length > 1 ? 's' : '') +
                 ': <div class="json">' + syntaxHighlight(JSON.stringify(results, undefined, 4)) + '</div>';
             this.set('output', output);
+        },
+
+        onKeyUp: function(evt) {
+            value = $(evt.target).val();
+            if (value.length == 4) {
+                this.set('input', value);
+                this.onGoClick(evt);
+            } else {
+                this.set('output', defaultOut);
+            }
         }
 
     });
