@@ -36,7 +36,7 @@ $(function() {
                 var operRes = oper.fn(currentValue, child);
                 var thisHistory = history + oper.name + child;
 
-                if (children.length === 1) {
+                if (children[childIdx].remainder.length == 0) {
                     if (operRes === 10)
                         found.push(thisHistory);
                 } else {
@@ -101,10 +101,9 @@ $(function() {
 
             results = _.uniq(results);
 
-            var output = 'Found ' + results.length + ' solutions: <div class="json">' + syntaxHighlight(JSON.stringify(results, undefined, 4)) + '</div>';
+            var output = 'Found ' + results.length + ' solution' + (results.length > 1 ? 's' : '') +
+                ': <div class="json">' + syntaxHighlight(JSON.stringify(results, undefined, 4)) + '</div>';
             this.set('output', output);
-
-            console.log(output);
         }
 
     });
